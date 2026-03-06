@@ -41,6 +41,12 @@ class TestimonialSection extends StatelessWidget {
                     name: "Gowri, College Student",
                   ),
                   _TestimonialCard(
+                    imagePath: "assets/images/bals.jpg",
+                    text:
+                        "I asked for a wikipedia for pokemons and it came out really good. The time taken, the design and attention to details everything came out as expected. The back-end for the battle system was incredible, quick response and tweaks really impressed",
+                    name: "bals",
+                  ),
+                  _TestimonialCard(
                     imagePath: "assets/images/profile.jpg",
                     text:
                         "I tried out a demo app developed by him and was genuinely impressed. Even though it was a trial version, the quality, design, and attention to detail stood out. Great work!",
