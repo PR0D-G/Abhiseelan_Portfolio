@@ -174,10 +174,25 @@ class _ResumePreviewCard extends StatelessWidget {
                   ),
                 ],
               ),
-              // REMOVED ICON BUTTON HERE
+              TextButton.icon(
+                onPressed: () async {
+                  final uri = Uri.parse('resume.pdf');
+                  if (await canLaunchUrl(uri)) {
+                    await launchUrl(uri, mode: LaunchMode.externalApplication);
+                  } else {
+                    await launchUrl(Uri.parse('assets/assets/resume.pdf'), mode: LaunchMode.externalApplication);
+                  }
+                },
+                icon: const Icon(Icons.open_in_new_rounded, size: 16),
+                label: const Text("Open PDF"),
+                style: TextButton.styleFrom(
+                  foregroundColor: primaryColor,
+                  textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                ),
+              ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           Expanded(
             child: Container(
               color: Colors.white,
@@ -680,8 +695,13 @@ class _DownloadCard extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(
-              onPressed: () {
-                launchUrl(Uri.parse('assets/resume.pdf'));
+              onPressed: () async {
+                final uri = Uri.parse('resume.pdf');
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                } else {
+                  await launchUrl(Uri.parse('assets/assets/resume.pdf'), mode: LaunchMode.externalApplication);
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,

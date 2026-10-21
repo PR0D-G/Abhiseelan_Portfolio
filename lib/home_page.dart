@@ -240,9 +240,14 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                     child: ElevatedButton.icon(
-                      onPressed: () {
+                      onPressed: () async {
                         Navigator.of(context).pop();
-                        launchUrl(Uri.parse('assets/resume.pdf'));
+                        final uri = Uri.parse('resume.pdf');
+                        if (await canLaunchUrl(uri)) {
+                          await launchUrl(uri, mode: LaunchMode.externalApplication);
+                        } else {
+                          await launchUrl(Uri.parse('assets/assets/resume.pdf'), mode: LaunchMode.externalApplication);
+                        }
                       },
                       icon: const Icon(Icons.download_rounded, size: 18),
                       label: const Text("View Resume"),

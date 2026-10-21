@@ -270,8 +270,13 @@ class _HeaderSectionState extends State<HeaderSection>
               ),
             ),
             OutlinedButton(
-              onPressed: () {
-                launchUrl(Uri.parse('assets/resume.pdf'));
+              onPressed: () async {
+                final uri = Uri.parse('resume.pdf');
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                } else {
+                  await launchUrl(Uri.parse('assets/assets/resume.pdf'), mode: LaunchMode.externalApplication);
+                }
               },
               style: OutlinedButton.styleFrom(
                 side: BorderSide(color: Theme.of(context).primaryColor),
