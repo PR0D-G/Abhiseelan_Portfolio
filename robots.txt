@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pr0d-g.github.io/Abhiseelan_Portfolio-main/sitemap.xml
